@@ -1,0 +1,48 @@
+.menu-bar{
+    -fx-background-color: #F29F05;
+    -fx-opacity: 0.5;
+    -fx-border-width: 4.0
+}
+
+.button1{
+    -fx-background-color: transparent;
+    
+}
+.button2{
+    -fx-background-color: #55CEFD;
+    -fx-background-radius: 10;
+    
+    
+}
+.button3:hover{
+    -fx-background-color: #55CEFD;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, black, 20,0,0,0);
+    
+}
+.button4:hover{
+    -fx-font-size: 22px;
+    
+}
+
+.button5:hover{
+    -fx-font-size: 20px;
+    -fx-effect: dropshadow(three-pass-box, #55CEFD, 20,0,0,0);
+}
+
+.buttonR:hover{
+    -fx-font-size: 17px;
+    -fx-effect: dropshadow(three-pass-box, #55CEFD, 20,0,0,0);
+}
+
+.table-view.column-header,
+.table-view.column-header-background.filler{
+    -fx-cell-size: 20;
+    -fx-background-color:#5D9E3B;
+}
+
+.table-row-cell:selected{
+    -fx-background-color:#55CEFD
+}
+
+

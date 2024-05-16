@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.randyoscal.Controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="474.0" fitWidth="646.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/Superm.jpg" />
+         </image></ImageView>
+      <MenuBar layoutY="26.0" prefHeight="30.0" prefWidth="215.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulo">
+            <items>
+              <MenuItem fx:id="btnProductos" mnemonicParsing="false" onAction="#clicProductos" text="Productos" />
+                  <MenuItem fx:id="btnProveedores" mnemonicParsing="false" onAction="#clicProveedores" text="Proveedores" />
+                  <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#clicClientes" text="Clientes" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes">
+            <items>
+              <MenuItem fx:id="btnCompraVenta" mnemonicParsing="false" onAction="#clicCompraVenta" text="Compra y Venta de productor" />
+                  <MenuItem fx:id="btnCargo" mnemonicParsing="false" onAction="#clicCargo" text="Cargo" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Acerca de:">
+            <items>
+                  <MenuItem fx:id="btnProgramador" mnemonicParsing="false" onAction="#clicProgramador" text="Programador" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="135.0" fitWidth="162.0" layoutX="476.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
