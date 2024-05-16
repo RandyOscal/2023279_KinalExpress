@@ -258,7 +258,6 @@ public class ProveedoresController implements Initializable{
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                txtCodigoP.setDisable(false);
                 imgEditar.setImage(new Image("/org/randyoscal/Image/Editar.png"));
                 imgReporte.setImage(new Image("/org/randyoscal/Image/Reportes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;

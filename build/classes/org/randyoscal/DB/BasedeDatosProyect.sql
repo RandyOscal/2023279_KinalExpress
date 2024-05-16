@@ -17,7 +17,7 @@ create table Clientes(
 create table Proveedores(
 	codigoProveedor int not null,
     NITproveedor varchar(10)not null,
-    nombreProveedor varchar(60),
+    nombreProveeedor varchar(60),
     apellidoProveedor varchar(60),
     direccionProveedor varchar(150),
     razonSocial varchar(60),
@@ -61,8 +61,8 @@ Delimiter $$
 		End $$
 Delimiter ;
 
-call sp_AgregarClientes (1, '26851', 'Harol', 'Luna', 'fdsgdsfg', '78945612', 'fghtstrew');
-call sp_AgregarClientes (8, '1598', 'Oliver', 'Doinis', 'sdfgds', '48250783', 'sdfgdssuyrtfg');
+call sp_AgregarClientes (1, '2685165456', 'Harol', 'Luna', 'fdsgdsfg', '78945612', 'fghysfdysdrtstrew');
+call sp_AgregarClientes (8, '1598742356', 'Oliver', 'Doinis', 'sdfgdsfgsdf', '48250783', 'sdfgdshfgdsuyrtfg');
 
 
 Delimiter $$
@@ -140,18 +140,18 @@ Delimiter ;
 -- ---------------------------------------- Crud de proveedores --------------------------------------
 
 Delimiter $$
-	create procedure sp_AgregarProveedores(in codigoProveedor int, NITproveedor varchar(10), in nombreProveedor varchar(50), in apellidoProveedor varchar(50),
+	create procedure sp_AgregarProveedores(in codigoProveedor int, NITproveedor varchar(10), in nombreProveeedor varchar(50), in apellidoProveedor varchar(50),
     in direccionProveedor varchar(150), in razonSocial varchar(8), in contactoPrincipal varchar(45), in paginaWeb varchar(50))
 		begin
-			insert into Proveedores (codigoProveedor, NITproveedor, nombreProveedor, apellidoProveedor, direccionProveedor,
+			insert into Proveedores (codigoProveedor, NITproveedor, nombreProveeedor, apellidoProveedor, direccionProveedor,
             razonSocial, contactoPrincipal, paginaWeb) values
-            (codigoProveedor, NITproveedor, nombreProveedor, apellidoProveedor, direccionProveedor,
+            (codigoProveedor, NITproveedor, nombreProveeedor, apellidoProveedor, direccionProveedor,
             razonSocial, contactoPrincipal, paginaWeb);
 		End $$
 Delimiter ;
 
-call sp_AgregarProveedores (1, '268516', 'Harol', 'Luna', 'fdsgdsfg', '7894', 'fghysstrew', 'vgbyjj');
-call sp_AgregarProveedores (9, '15987', 'Oliver', 'Doinis', 'sdfdf', '482583', '12345678', 'uvyyuv');
+call sp_AgregarProveedores (1, '2685165456', 'Harol', 'Luna', 'fdsgdsfg', '78945612', 'fghysfdysdrtstrew', 'vgbyjj');
+call sp_AgregarProveedores (8, '1598742356', 'Oliver', 'Doinis', 'sdfgdsfgsdf', '48250783', 'sdfgdshfgds', 'uvyyuv');
 
 
 Delimiter $$
@@ -160,7 +160,7 @@ Delimiter $$
 			select
             P.codigoProveedor,
             P.NITproveedor,
-            P.nombreProveedor,
+            P.nombreProveeedor,
             P.apellidoProveedor,
             P.direccionProveedor,
             P.razonSocial,
@@ -178,7 +178,7 @@ Delimiter $$
 			select
             P.codigoProveedor,
             P.NITproveedor,
-            P.nombreProveedor,
+            P.nombreProveeedor,
             P.apellidoProveedor,
             P.direccionProveedor,
             P.razonSocial,
@@ -205,13 +205,13 @@ call sp_ListarProveedores();
 
 Delimiter $$
 	create procedure sp_EditarProveedores (in codigoP int, in NitP varchar(10), in nombreP varchar(50), in apellidoP varchar(50),
-			in direccionP varchar(150), in razonS varchar(8), in contactoP varchar(45), in paginaW varchar(50))
+			in direccionP varchar(150), in razonS varchar(8), in correoP varchar(45), in paginaW varchar(50))
 				Begin
-					update Proveedores P
+					update Proveedor P
 						set
 					P.codigoProveedor = codigoP,
 					P.NITproveedor = NitP,
-					P.nombreProveedor = nombreP,
+					P.nombreProveeedore = nombreP,
 					P.apellidoProveedor = apellidoP,
 					P.direccionProveedor = direccionP,
 					P.razonSocial = razonS,
@@ -225,14 +225,14 @@ Delimiter ;
 -- ------------------------------------------------------ Compras ---------------------------------------------
 
 Delimiter $$
-	create procedure sp_AgregarCompras(in numeroDocumento int, in fechaDocumento date, in descripcion varchar(60), in totalDocumento decimal(10,2))
+	create procedure sp_AgregarCompras(in numeroDocumento int, in fechaDocumento date, in descripcion varchar(60), in totalDocumento decimal(10, 2))
 		begin
 			insert into Compras (numeroDocumento, fechaDocumento, descripcion, totalDocumento) values
             (numeroDocumento, fechaDocumento, descripcion, totalDocumento);
 		End $$
 Delimiter ;
 
-call sp_AgregarCompras(10, '2024-04-30','Compra mayoritaria', 120.50);
+call sp_AgregarCompras(10, '2024-04-30','Compra mayoritaria','120.50');
 
 Delimiter $$
 	create procedure sp_ListarCompras()
@@ -271,15 +271,15 @@ Delimiter ;
 
 
 Delimiter $$
-	create procedure sp_EditarCompras(in numeroDoc int, in fechaDoc date, in descr varchar(60), in totalDoc decimal(10, 2))
+	create procedure sp_EditarCompras(in numeroDocumento int, in fechaDocumento date, in descripcion varchar(60), in totalDocumento decimal(10, 2))
 				Begin
 					update Compras Co
 						set
-					Co.numeroDocumento = numeroDoc,
-					Co.fechaDocumento = fechaDoc,
-					Co.descripcion = descr,
-					Co.totalDocumento = totalDoc
-					where Co.numeroDocumento = numeroDoc;
+					Co.numeroDocumento = numeroDocumento,
+					Co.fechaDocumento = fechaDocumento,
+					Co.descripcion = descripcion,
+					Co.totalDocumento = totalDocumento
+					where idCliente = id;
 				end $$
 Delimiter ;
 
@@ -336,14 +336,14 @@ Delimiter ;
 
 
 Delimiter $$
-	create procedure sp_EditarCargoEmpleado(in idCargoEm int, in nomCargo varchar(50), in desCargo varchar(50))
+	create procedure sp_EditarCargoEmpleado(in idCargoEmpleado int, in nombreCargo varchar(50), in descripcionCargo varchar(50))
 				Begin
 					update CargoEmpleado Ca
 						set
                         Ca.idCargoEmpleado = idCargoEm,
                         Ca.nombreCargo = nomCargo,
                         Ca.descripcionCargo = desCargo
-					where Ca.idCargoEmpleado = idCargoEm;
+					where idCargoEmpleado = id;
 				end $$
 Delimiter ;
 
@@ -393,12 +393,12 @@ Delimiter ;
 
 
 Delimiter $$
-	create procedure sp_EditarTipoProducto(in id int, in descr varchar(50))
+	create procedure sp_EditarTipoProducto(in idTipoProducto int, in descripcion varchar(50))
 				Begin
 					update TipoProducto Tp
 						set
-                        Tp.idTipoProducto = id,
-                        Tp.descripcion = descr
+                        Tp.idTipoProducto = idTipoProducto,
+                        Tp.descripcion = descripcion
 					where idTipoProducto = id;
 				end $$
 Delimiter ;
