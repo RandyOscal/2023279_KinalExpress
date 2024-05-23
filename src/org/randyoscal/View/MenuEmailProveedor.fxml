@@ -17,7 +17,7 @@
    <children>
       <ImageView fitHeight="422.0" fitWidth="749.0">
          <image>
-            <Image url="@../Image/FondoTipoProduc.png" />
+            <Image url="@../Image/fondo.jpeg" />
          </image>
       </ImageView>
       <GridPane layoutX="31.0" layoutY="135.0" prefHeight="249.0" prefWidth="164.0">
@@ -117,5 +117,10 @@
             <TextField fx:id="txtCodigoProveedor" GridPane.columnIndex="5" GridPane.rowIndex="1" />
          </children>
       </GridPane>
+      <Label layoutX="30.0" layoutY="24.0" prefHeight="53.0" prefWidth="226.0" text="EMAIL P" textFill="#fff8f8">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

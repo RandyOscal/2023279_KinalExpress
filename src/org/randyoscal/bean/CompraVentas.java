@@ -1,8 +1,5 @@
 
 package org.randyoscal.bean;
-
-import java.sql.Date;
-
 public class CompraVentas {
     private int numeroDocumento;
     private String fechaDocumento;
