@@ -62,6 +62,7 @@ public class MenuClientesController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
+        desactivarControles();
     }
     
         
@@ -150,7 +151,7 @@ public class MenuClientesController implements Initializable{
         registro.setTelefonoCliente(txtTelefonoC.getText());
         registro.setCorreoCliente(txtCorreoC.getText());
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarClientes(?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarCliente(?, ?, ?, ?, ?, ?, ?)");
             procedimiento.setInt(1, registro.getCodigoCliente());
             procedimiento.setString(2, registro.getNITcliente());            
             procedimiento.setString(3, registro.getNombreCliente());
@@ -187,7 +188,7 @@ public class MenuClientesController implements Initializable{
                     int respuesta  = JOptionPane.showConfirmDialog(null, "Confirmar si elimina el registro", "Eliminar Clientes", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
                         try{
-                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarClientes(?)");
+                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarCliente(?)");
                             procedimiento.setInt(1, ((Clientes)tblClientes.getSelectionModel().getSelectedItem()).getCodigoCliente());
                             procedimiento.execute();
                             listaClientes.remove(tblClientes.getSelectionModel().getSelectedItem());
@@ -260,7 +261,7 @@ public class MenuClientesController implements Initializable{
     
     public void actualizar(){
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarClientes(?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarCliente(?, ?, ?, ?, ?, ?, ?)");
             Clientes registro = (Clientes)tblClientes.getSelectionModel().getSelectedItem();
             registro.setNITcliente(txtNit.getText());
             registro.setNombreCliente(txtNombreC.getText());

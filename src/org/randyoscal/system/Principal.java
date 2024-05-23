@@ -5,17 +5,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.randyoscal.Controller.CompraVentaController;
 import org.randyoscal.Controller.MenuClientesController;
 import org.randyoscal.Controller.MenuPrincipalController;
-import org.randyoscal.Controller.ProductosController;
+import org.randyoscal.Controller.TipoProductosController;
 import org.randyoscal.Controller.ProgramadorController;
 import org.randyoscal.Controller.ProveedoresController;
 import org.randyoscal.Controller.CargoEmpleadoController;
+import org.randyoscal.Controller.DetalleCompraController;
+import org.randyoscal.Controller.EmailProveedorController;
+import org.randyoscal.Controller.EmpleadoController;
+import org.randyoscal.Controller.ProductoController;
+import org.randyoscal.Controller.TelefonoProveedorController;
 
 /*
 * Documentacion:
@@ -88,9 +92,9 @@ public class Principal extends Application {
     
     }
     
-    public void ProductosView(){
+    public void TipoProductosView(){
         try{
-            ProductosController ProductosView = (ProductosController)cambiarEscena("MenuProductos.fxml", 749,422);
+            TipoProductosController ProductosView = (TipoProductosController)cambiarEscena("MenuTipoProductos.fxml", 749,422);
             ProductosView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
@@ -130,6 +134,62 @@ public class Principal extends Application {
     
     }
     
+    public void TipoProductoView(){
+        try{
+            TipoProductosController ProductosView = (TipoProductosController)cambiarEscena("MenuTipoProductos.fxml", 749,422);
+            ProductosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public void ProductoView(){
+        try{
+            ProductoController ProductosView = (ProductoController)cambiarEscena("MenuProductos.fxml", 749,422);
+            ProductosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public void EmpleadoView(){
+        try{
+            EmpleadoController ProductosView = (EmpleadoController)cambiarEscena("MenuEmpleadoView.fxml", 749,422);
+            ProductosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void TelefonoProveedor(){
+        try{
+            TelefonoProveedorController ProductosView = (TelefonoProveedorController)cambiarEscena("MenuTelefonoProveedor.fxml", 749,422);
+            ProductosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    public void EmailProveedor(){
+        try{
+            EmailProveedorController ProductosView = (EmailProveedorController)cambiarEscena("MenuEmailProveedor.fxml", 749,422);
+            ProductosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void DetalleCompra(){
+        try{
+            DetalleCompraController ProductosView = (DetalleCompraController)cambiarEscena("MenuDetalleCompra.fxml", 749,422);
+            ProductosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     
     /**
      * @param args the command line arguments

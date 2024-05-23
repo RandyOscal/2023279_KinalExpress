@@ -25,6 +25,7 @@
     
 }
 
+/* Estilos para los botones de las demas vistas*/
 .button5:hover{
     -fx-font-size: 20px;
     -fx-effect: dropshadow(three-pass-box, #55CEFD, 20,0,0,0);
@@ -32,6 +33,12 @@
 
 .buttonR:hover{
     -fx-font-size: 17px;
+    -fx-effect: dropshadow(three-pass-box, #55CEFD, 20,0,0,0);
+}
+
+/* Estilo para el boton regresar de Programador */
+.buttonRP:hover{
+    -fx-font-size: 15px;
     -fx-effect: dropshadow(three-pass-box, #55CEFD, 20,0,0,0);
 }
 

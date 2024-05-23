@@ -57,6 +57,7 @@ public class CargoEmpleadoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
+        desactivarControles();
     }
 
     public void cargarDatos() {
@@ -77,7 +78,7 @@ public class CargoEmpleadoController implements Initializable {
     public ObservableList<CargoEmpleados> getCargoEmpleados() {
         ArrayList<CargoEmpleados> lista = new ArrayList<>();
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarCargoEmpleado()}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarCargosEmpleado()}");
             ResultSet resultado = procedimiento.executeQuery();
             while (resultado.next()) {
                 lista.add(new CargoEmpleados(resultado.getInt("idCargoEmpleado"),

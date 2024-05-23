@@ -13,10 +13,15 @@ public class MenuPrincipalController implements Initializable {
     private Principal escenarioPrincipal;
     
   //  @FXML MenuItem btnMenuClientes;
+    @FXML MenuItem btnDetalleCompra;
     @FXML MenuItem btnMenuClientes;
+    @FXML MenuItem btnMenuEmailClientes;
+    @FXML MenuItem btnMenuEmpleado;
     @FXML MenuItem btnProgramador;
     @FXML MenuItem btnProductos;
+    @FXML MenuItem btnTipProductos;
     @FXML MenuItem btnProveedores;
+    @FXML MenuItem btnMenuTelefonoClientes;
     @FXML MenuItem btnCompraVenta;
     @FXML MenuItem btnCargo;
     
@@ -39,7 +44,7 @@ public class MenuPrincipalController implements Initializable {
             escenarioPrincipal.menuClientesView();
         }
     }
-    
+      
     
     
     @FXML
@@ -51,9 +56,9 @@ public class MenuPrincipalController implements Initializable {
     
     
     @FXML
-    public void clicProductos (ActionEvent event){
-        if (event.getSource() == btnProductos){
-            escenarioPrincipal.ProductosView();
+    public void clicTipoProductos (ActionEvent event){
+        if (event.getSource() == btnTipProductos){
+            escenarioPrincipal.TipoProductosView();
         }
     }
     
@@ -77,6 +82,41 @@ public class MenuPrincipalController implements Initializable {
             escenarioPrincipal.CargoView();
         }
     }
-       
+    
+    @FXML
+    public void clicProductos (ActionEvent event){
+        if (event.getSource() == btnProductos){
+            escenarioPrincipal.ProductoView();
+        }
+    }
+    
+    @FXML
+    public void clicEmplado (ActionEvent event){
+        if (event.getSource() == btnMenuEmpleado){
+            escenarioPrincipal.EmpleadoView();
+        }
+    }
+    
+    @FXML
+    public void clicTProveedor (ActionEvent event){
+        if (event.getSource() == btnMenuTelefonoClientes){
+            escenarioPrincipal.TelefonoProveedor();
+        }
+    }
+    
+    @FXML
+    public void clicEProveedor (ActionEvent event){
+        if (event.getSource() == btnMenuEmailClientes){
+            escenarioPrincipal.EmailProveedor();
+        }
+    }
+    
+    @FXML
+    public void clicDCompra (ActionEvent event){
+        if (event.getSource() == btnDetalleCompra){
+            escenarioPrincipal.DetalleCompra();
+        }
+    }
+    
 }
 

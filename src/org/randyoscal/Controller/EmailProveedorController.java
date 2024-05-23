@@ -1,4 +1,3 @@
-
 package org.randyoscal.Controller;
 
 import java.net.URL;
@@ -6,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,32 +20,28 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.randyoscal.DB.Conexion;
-import org.randyoscal.bean.CompraVentas;
+import org.randyoscal.bean.EmailProveedor;
 import org.randyoscal.system.Principal;
 
-public class CompraVentaController implements Initializable{
- private Principal escenarioPrincipal;
-
+public class EmailProveedorController implements Initializable{
+    private Principal escenarioPrincipal;
     private enum operaciones{AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO}
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
-    private ObservableList<CompraVentas> listaClientes;
+    private ObservableList<EmailProveedor> listaEmailsProveedor;
     @FXML private Button btnRegresar;
-  //  @FXML MenuItem btnMenuClientes
     
-    @FXML private TextField txtnumeroDoc;
-    @FXML private TextField txtfechaDoc;
-    @FXML private TextField txtdescripcion;
-    @FXML private TextField txttotalDoc;
+    @FXML private TextField txtCodigoEmailProveedor;
+    @FXML private TextField txtEmailProveedor;
+    @FXML private TextField txtDescripcion;
+    @FXML private TextField txtCodigoProveedor;
     
+    @FXML private TableView tblEmailsProveedor;
     
-    @FXML private TableView tblComprasV;
+    @FXML private TableColumn colCodigoEmailProveedor;
+    @FXML private TableColumn colEmailProveedor;
+    @FXML private TableColumn colDescripcion;
+    @FXML private TableColumn colCodigoProveedor;
     
-    @FXML private TableColumn colnumeroDoc;
-    @FXML private TableColumn colfechaDoc;
-    @FXML private TableColumn coldescripcion;
-    @FXML private TableColumn coltotalDoc;
-    
-        
     @FXML private Button btnAgregar;
     @FXML private Button btnEliminar;
     @FXML private Button btnEditar;
@@ -55,49 +51,54 @@ public class CompraVentaController implements Initializable{
     @FXML private ImageView imgEliminar;
     @FXML private ImageView imgEditar;
     @FXML private ImageView imgReporte;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
         desactivarControles();
     }
-
-    public  void cargarDatos(){
-        tblComprasV.setItems(getCompraVentas());
-        colnumeroDoc.setCellValueFactory(new PropertyValueFactory<CompraVentas, Integer>("numeroDocumento"));
-        colfechaDoc.setCellValueFactory(new PropertyValueFactory<CompraVentas, String>("fechaDocumento"));
-        coldescripcion.setCellValueFactory(new PropertyValueFactory<CompraVentas, String>("descripcion"));
-        coltotalDoc.setCellValueFactory(new PropertyValueFactory<CompraVentas, String>("totalDocumento"));
-       
+    
+    public void cargarDatos(){
+    if (tblEmailsProveedor != null) {
+        tblEmailsProveedor.setItems(getEmailsProveedor());
+        colCodigoEmailProveedor.setCellValueFactory(new PropertyValueFactory<EmailProveedor, Integer>("codigoEmailProveedor"));
+        colEmailProveedor.setCellValueFactory(new PropertyValueFactory<EmailProveedor, String>("emailProveedor"));
+        colDescripcion.setCellValueFactory(new PropertyValueFactory<EmailProveedor, String>("descripcion"));
+        colCodigoProveedor.setCellValueFactory(new PropertyValueFactory<EmailProveedor, Integer>("codigoProveedor"));
+    } else {
+        System.out.println("tblEmailsProveedor es nulo");
     }
-    
-    public void selccionarDatos(){
-    txtnumeroDoc.setText(String.valueOf(((CompraVentas)tblComprasV.getSelectionModel().getSelectedItem()).getNumeroDocumento()));
-    txtfechaDoc.setText(((CompraVentas)tblComprasV.getSelectionModel().getSelectedItem()).getFechaDocumento());
-    txtdescripcion.setText(((CompraVentas)tblComprasV.getSelectionModel().getSelectedItem()).getDescripcion());
-    txttotalDoc.setText(((CompraVentas)tblComprasV.getSelectionModel().getSelectedItem()).getTotalDocumento());
-    
-        
 }
+
     
-    public ObservableList<CompraVentas> getCompraVentas(){
-        ArrayList<CompraVentas> lista = new ArrayList<>();
+    public ObservableList<EmailProveedor> getEmailsProveedor(){
+        ArrayList<EmailProveedor> lista = new ArrayList<>();
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarCompras()}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarEmailsProveedor()}");
             ResultSet resultado = procedimiento.executeQuery();
             while(resultado.next()){
-                lista.add(new CompraVentas (resultado.getInt("numeroDocumento"),
-                                        resultado.getString("fechaDocumento"),
-                                        resultado.getString("descripcion"),
-                                        resultado.getString("totalDocumento")
-                                                                               
-                
+                lista.add(new EmailProveedor (
+                        resultado.getInt("codigoEmailProveedor"),
+                        resultado.getString("emailProveedor"),
+                        resultado.getString("descripcion"),
+                        resultado.getInt("codigoProveedor")
                 ));
             }
         }catch(Exception e){
             e.printStackTrace();
         }
-                
-        return listaClientes = FXCollections.observableArrayList(lista);
+        return listaEmailsProveedor = FXCollections.observableArrayList(lista);
+    }
+    
+    public void seleccionarDatos(){
+        if (tblEmailsProveedor.getSelectionModel().getSelectedItem() != null) {
+            txtCodigoEmailProveedor.setText(String.valueOf(((EmailProveedor)tblEmailsProveedor.getSelectionModel().getSelectedItem()).getCodigoEmailProveedor()));
+            txtEmailProveedor.setText(((EmailProveedor)tblEmailsProveedor.getSelectionModel().getSelectedItem()).getEmailProveedor());
+            txtDescripcion.setText(((EmailProveedor)tblEmailsProveedor.getSelectionModel().getSelectedItem()).getDescripcion());
+            txtCodigoProveedor.setText(String.valueOf(((EmailProveedor)tblEmailsProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un elemento de la tabla.");
+        }
     }
     
     public void agregar(){
@@ -109,7 +110,6 @@ public class CompraVentaController implements Initializable{
                 btnEliminar.setText("Cancelar");
                 btnEditar.setDisable(true);
                 btnReporte.setDisable(true);
-                // Agregar imagenes nuevas para guardar y cancelar
                 imgAgregar.setImage(new Image("/org/randyoscal/Image/Aceptar.png"));
                 imgEliminar.setImage(new Image("/org/randyoscal/Image/Cancelar.png"));
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -131,28 +131,22 @@ public class CompraVentaController implements Initializable{
     }
     
     public void guardar(){
-        CompraVentas registro = new CompraVentas();
-        registro.setNumeroDocumento(Integer.parseInt(txtnumeroDoc.getText()));
-        registro.setFechaDocumento(txtfechaDoc.getText());
-        registro.setDescripcion(txtdescripcion.getText());
-        registro.setTotalDocumento(txttotalDoc.getText());
-        
+        EmailProveedor registro = new EmailProveedor();
+        registro.setCodigoEmailProveedor(Integer.parseInt(txtCodigoEmailProveedor.getText()));
+        registro.setEmailProveedor(txtEmailProveedor.getText());
+        registro.setDescripcion(txtDescripcion.getText());
+        registro.setCodigoProveedor(Integer.parseInt(txtCodigoProveedor.getText()));
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarCompra(?, ?, ?, ?)");
-            procedimiento.setInt(1, registro.getNumeroDocumento());
-            procedimiento.setString(2, registro.getFechaDocumento());            
-            procedimiento.setString(3, registro.getDescripcion());            
-            procedimiento.setString(4, registro.getTotalDocumento());            
-            
-            
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarEmailProveedor(?, ?, ?, ?)");
+            procedimiento.setInt(1, registro.getCodigoEmailProveedor());
+            procedimiento.setString(2, registro.getEmailProveedor());
+            procedimiento.setString(3, registro.getDescripcion());
+            procedimiento.setInt(4, registro.getCodigoProveedor());
             procedimiento.execute();
-            listaClientes.add(registro);
-            
+            listaEmailsProveedor.add(registro);
         }catch(Exception e){
             e.printStackTrace();
         }
-            
-        
     }
     
     public void eliminar(){
@@ -169,33 +163,28 @@ public class CompraVentaController implements Initializable{
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
-                if(tblComprasV.getSelectionModel().getSelectedItem() != null){
-                    int respuesta  = JOptionPane.showConfirmDialog(null, "Confirmar si elimina el registro", "Eliminar Proveedores", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(tblEmailsProveedor.getSelectionModel().getSelectedItem() != null){
+                    int respuesta  = JOptionPane.showConfirmDialog(null, "Confirmar si elimina el registro", "Eliminar Correo de Proveedor", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
                         try{
-                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarCompra(?)");
-                            procedimiento.setInt(1, ((CompraVentas)tblComprasV.getSelectionModel().getSelectedItem()).getNumeroDocumento());
+                            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarEmailProveedorPorCodigo(?)");
+                            procedimiento.setInt(1, ((EmailProveedor)tblEmailsProveedor.getSelectionModel().getSelectedItem()).getCodigoEmailProveedor());
                             procedimiento.execute();
-                            listaClientes.remove(tblComprasV.getSelectionModel().getSelectedItem());
+                            listaEmailsProveedor.remove(tblEmailsProveedor.getSelectionModel().getSelectedItem());
                             limpiarControles();
                         }catch(Exception e){
                             e.printStackTrace();
                         }
-                        
                     }
                 }else
-                    JOptionPane.showMessageDialog(null, "Debe de selccionar un elemento. ");
-                
+                    JOptionPane.showMessageDialog(null, "Debe de seleccionar un elemento.");
         }
-        
-        
     }
     
     public void editar(){
-        
         switch(tipoDeOperaciones){
             case NINGUNO:
-                if (tblComprasV.getSelectionModel().getSelectedItem() != null) {
+                if (tblEmailsProveedor.getSelectionModel().getSelectedItem() != null) {
                     btnEditar.setText("Actualizar");
                     btnReporte.setText("Cancelar");
                     btnAgregar.setDisable(true);
@@ -203,10 +192,10 @@ public class CompraVentaController implements Initializable{
                     imgEditar.setImage(new Image("/org/randyoscal/Image/Aceptar.png"));
                     imgReporte.setImage(new Image("/org/randyoscal/Image/Cancelar.png"));
                     activarControles();
-                    txtnumeroDoc.setDisable(true);
+                    txtCodigoEmailProveedor.setDisable(true);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
                 }else
-                    JOptionPane.showMessageDialog(null, "Debe de seleccionar algun elemento");
+                    JOptionPane.showMessageDialog(null, "Debe de seleccionar algún elemento");
                 break;
             case ACTUALIZAR:
                 actualizar();
@@ -217,14 +206,11 @@ public class CompraVentaController implements Initializable{
                     imgEditar.setImage(new Image("/org/randyoscal/Image/Editar.png"));
                     imgReporte.setImage(new Image("/org/randyoscal/Image/Reportes.png"));
                     desactivarControles();
-                    txtnumeroDoc.setDisable(false);
+                    txtCodigoEmailProveedor.setDisable(false);
                     tipoDeOperaciones = operaciones.NINGUNO;
                     limpiarControles();
                     cargarDatos();
-            
         }
-        
-        
     }
     
     public void reporte(){
@@ -236,73 +222,60 @@ public class CompraVentaController implements Initializable{
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                txtnumeroDoc.setDisable(false);
+                txtCodigoEmailProveedor.setDisable(false);
                 imgEditar.setImage(new Image("/org/randyoscal/Image/Editar.png"));
                 imgReporte.setImage(new Image("/org/randyoscal/Image/Reportes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
         }
     }
     
-    
     public void actualizar(){
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarCompra(?, ?, ?, ?)");
-            CompraVentas registro = (CompraVentas)tblComprasV.getSelectionModel().getSelectedItem();
-            registro.setFechaDocumento(txtfechaDoc.getText());
-            registro.setDescripcion(txtdescripcion.getText());
-            registro.setTotalDocumento(txttotalDoc.getText());
-            procedimiento.setInt(1, registro.getNumeroDocumento());
-            procedimiento.setString(2, registro.getFechaDocumento());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarEmailProveedor(?, ?, ?, ?)");
+            EmailProveedor registro = (EmailProveedor)tblEmailsProveedor.getSelectionModel().getSelectedItem();
+            registro.setEmailProveedor(txtEmailProveedor.getText());
+            registro.setDescripcion(txtDescripcion.getText());
+            registro.setCodigoProveedor(Integer.parseInt(txtCodigoProveedor.getText()));
+            procedimiento.setInt(1, registro.getCodigoEmailProveedor());
+            procedimiento.setString(2, registro.getEmailProveedor());
             procedimiento.setString(3, registro.getDescripcion());
-            procedimiento.setString(4, registro.getTotalDocumento());
-            
-            
+            procedimiento.setInt(4, registro.getCodigoProveedor());
             procedimiento.execute();
-            listaClientes.add(registro);
-
-            
+            listaEmailsProveedor.add(registro);
         }catch(Exception e){
             e.printStackTrace();
         }
-        
     }
     
     public void desactivarControles(){
-        txtnumeroDoc.setEditable(false);
-        txtfechaDoc.setEditable(false);
-        txtdescripcion.setEditable(false);
-        txttotalDoc.setEditable(false);
-        
+        txtCodigoEmailProveedor.setEditable(false);
+        txtEmailProveedor.setEditable(false);
+        txtDescripcion.setEditable(false);
+        txtCodigoProveedor.setEditable(false);
     }
     
-    
     public void activarControles(){
-        txtnumeroDoc.setEditable(true);
-        txtfechaDoc.setEditable(true);
-        txtdescripcion.setEditable(true);
-        txttotalDoc.setEditable(true);
-        
+        txtCodigoEmailProveedor.setEditable(true);
+        txtEmailProveedor.setEditable(true);
+        txtDescripcion.setEditable(true);
+        txtCodigoProveedor.setEditable(true);
     }
     
     public void limpiarControles(){
-        txtnumeroDoc.clear();
-        txtfechaDoc.clear();
-        txtdescripcion.clear();
-        txttotalDoc.clear();
-        
+        txtCodigoEmailProveedor.clear();
+        txtEmailProveedor.clear();
+        txtDescripcion.clear();
+        txtCodigoProveedor.clear();
     }
     
-    
-
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
     }
-    
     
     @FXML 
     public void regresar (ActionEvent event){
         if (event.getSource() == btnRegresar){
             escenarioPrincipal.menuPrincipalView();
         }
-    }   
+    }
 }

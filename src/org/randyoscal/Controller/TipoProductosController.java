@@ -20,15 +20,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.randyoscal.DB.Conexion;
-import org.randyoscal.bean.Productos;
+import org.randyoscal.bean.TipoProductos;
 import org.randyoscal.system.Principal;
 
-public class ProductosController implements Initializable{
+public class TipoProductosController implements Initializable{
    private Principal escenarioPrincipal;
 
     private enum operaciones{AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO}
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
-    private ObservableList<Productos> listaClientes;
+    private ObservableList<TipoProductos> listaClientes;
     @FXML private Button btnRegresar;
   //  @FXML MenuItem btnMenuClientes
     
@@ -55,29 +55,30 @@ public class ProductosController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
+        desactivarControles();
     }
 
     public  void cargarDatos(){
         tblProductos.setItems(getProductos());
-        colidTipoPro.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("idTipoProducto"));
-        coldescripcion.setCellValueFactory(new PropertyValueFactory<Productos, String>("descripcion"));
+        colidTipoPro.setCellValueFactory(new PropertyValueFactory<TipoProductos, Integer>("idTipoProducto"));
+        coldescripcion.setCellValueFactory(new PropertyValueFactory<TipoProductos, String>("descripcion"));
         
     }
     
     public void selccionarDatos(){
-    txtidTipoPro.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getIdTipoProducto()));
-    txtdescripcion.setText(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getDescripcion());
+    txtidTipoPro.setText(String.valueOf(((TipoProductos)tblProductos.getSelectionModel().getSelectedItem()).getIdTipoProducto()));
+    txtdescripcion.setText(((TipoProductos)tblProductos.getSelectionModel().getSelectedItem()).getDescripcion());
     
         
 }
     
-    public ObservableList<Productos> getProductos(){
-        ArrayList<Productos> lista = new ArrayList<>();
+    public ObservableList<TipoProductos> getProductos(){
+        ArrayList<TipoProductos> lista = new ArrayList<>();
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_ListarTipoProducto()");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_ListarTiposProducto()");
             ResultSet resultado = procedimiento.executeQuery();
             while(resultado.next()){
-                lista.add(new Productos (resultado.getInt("idTipoProducto"),
+                lista.add(new TipoProductos (resultado.getInt("idTipoProducto"),
                                         resultado.getString("descripcion")                                       
                 
                 ));
@@ -120,7 +121,7 @@ public class ProductosController implements Initializable{
     }
     
     public void guardar(){
-        Productos registro = new Productos();
+        TipoProductos registro = new TipoProductos();
         registro.setIdTipoProducto(Integer.parseInt(txtidTipoPro.getText()));
         registro.setDescripcion(txtdescripcion.getText());
         
@@ -158,7 +159,7 @@ public class ProductosController implements Initializable{
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
                         try{
                             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EliminarTipoProducto(?)");
-                            procedimiento.setInt(1, ((Productos)tblProductos.getSelectionModel().getSelectedItem()).getIdTipoProducto());
+                            procedimiento.setInt(1, ((TipoProductos)tblProductos.getSelectionModel().getSelectedItem()).getIdTipoProducto());
                             procedimiento.execute();
                             listaClientes.remove(tblProductos.getSelectionModel().getSelectedItem());
                             limpiarControles();
@@ -231,7 +232,7 @@ public class ProductosController implements Initializable{
     public void actualizar(){
         try{
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarTipoProducto(?,?)");
-            Productos registro = (Productos)tblProductos.getSelectionModel().getSelectedItem();
+            TipoProductos registro = (TipoProductos)tblProductos.getSelectionModel().getSelectedItem();
             registro.setDescripcion(txtdescripcion.getText());
             procedimiento.setInt(1, registro.getIdTipoProducto());
             procedimiento.setString(2, registro.getDescripcion());

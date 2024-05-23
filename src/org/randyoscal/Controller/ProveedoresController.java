@@ -66,6 +66,8 @@ public class ProveedoresController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
+        desactivarControles();
+
     }
     
     public  void cargarDatos(){
@@ -157,7 +159,7 @@ public class ProveedoresController implements Initializable{
         registro.setContactoPrincipal(txtContactoP.getText());
         registro.setPaginaWeb(txtpaginaW.getText());
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarProveedores(?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_AgregarProveedor(?, ?, ?, ?, ?, ?, ?, ?)");
             procedimiento.setInt(1, registro.getCodigoProveedor());
             procedimiento.setString(2, registro.getNITproveedor());            
             procedimiento.setString(3, registro.getNombreProveedor());
@@ -252,6 +254,7 @@ public class ProveedoresController implements Initializable{
     public void reporte(){
         switch(tipoDeOperaciones){
             case ACTUALIZAR:
+                txtCodigoP.setDisable(false);
                 desactivarControles();
                 limpiarControles();
                 btnEditar.setText("Editar");
@@ -267,7 +270,7 @@ public class ProveedoresController implements Initializable{
     
     public void actualizar(){
         try{
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarProveedores(?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("call sp_EditarProveedor(?, ?, ?, ?, ?, ?, ?, ?)");
             Proveedores registro = (Proveedores)tblProveedores.getSelectionModel().getSelectedItem();
             registro.setNITproveedor(txtNitP.getText());
             registro.setNombreProveedor(txtNombreP.getText());

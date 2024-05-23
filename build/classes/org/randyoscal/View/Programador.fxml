@@ -11,12 +11,17 @@
    <children>
       <AnchorPane layoutX="8.0" layoutY="7.0" prefHeight="383.0" prefWidth="393.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="btnRegresar" layoutX="304.0" layoutY="327.0" mnemonicParsing="false" onAction="#regresar" prefHeight="42.0" prefWidth="83.0" styleClass="buttonR" stylesheets="@../Resource/KinalExpresCSS.css" text="Regresar">
+            <Button fx:id="btnRegresar" layoutX="304.0" layoutY="327.0" mnemonicParsing="false" onAction="#regresar" prefHeight="42.0" prefWidth="83.0" styleClass="buttonRP" stylesheets="@../Resource/KinalExpresCSS.css" text="Regresar">
                <font>
                   <Font name="Eras Bold ITC" size="14.0" />
                </font>
             </Button>
-            <Text layoutX="10.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por que me gusto el poder realizar aplicaiones y  tambien el ver como es que funciona todo lo que  usamos y me agrada la idea de que yo tambien  puedo realizar cosas que las personas neseciten." wrappingWidth="373.59619140625">
+            <Text layoutX="10.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por que me gusto el poder realizar aplicaiones y  tambien el ver como es que funciona todo lo que  usamos y me agrada la idea de que yo tambien  puedo realizar cosas que las personas neseciten." wrappingWidth="373.59619140625">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#00458a" fontSmoothingType="LCD" layoutX="20.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Porque me gusta la informatica?" textAlignment="CENTER" wrappingWidth="227.25146484375">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
@@ -36,11 +41,6 @@
       <Text fontSmoothingType="LCD" layoutX="13.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento: 06/01/2007" textAlignment="CENTER">
          <font>
             <Font name="Eras Bold ITC" size="15.0" />
-         </font>
-      </Text>
-      <Text fill="#00458a" fontSmoothingType="LCD" layoutX="14.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Porque me gusta la informatica?" textAlignment="CENTER">
-         <font>
-            <Font name="Eras Bold ITC" size="13.0" />
          </font>
       </Text>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">

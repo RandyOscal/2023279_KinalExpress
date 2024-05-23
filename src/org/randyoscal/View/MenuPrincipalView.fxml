@@ -17,15 +17,42 @@
         <menus>
           <Menu mnemonicParsing="false" text="Modulo">
             <items>
-              <MenuItem fx:id="btnProductos" mnemonicParsing="false" onAction="#clicProductos" text="Productos" />
-                  <MenuItem fx:id="btnProveedores" mnemonicParsing="false" onAction="#clicProveedores" text="Proveedores" />
                   <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#clicClientes" text="Clientes" />
+                  <Menu mnemonicParsing="false" text="Datos Productos">
+                    <items>
+                        <MenuItem fx:id="btnProductos" mnemonicParsing="false" onAction="#clicProductos" text="Productos" />
+                    <MenuItem fx:id="btnTipProductos" mnemonicParsing="false" onAction="#clicTipoProductos" text="Tipos de Productos" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Datos Proveedores">
+                    <items>
+                        <MenuItem fx:id="btnProveedores" mnemonicParsing="false" onAction="#clicProveedores" text="Proveedores" />
+                        <MenuItem fx:id="btnMenuTelefonoClientes" mnemonicParsing="false" onAction="#clicTProveedor" text="Telefono Proveedor" />
+                        <MenuItem fx:id="btnMenuEmailClientes" mnemonicParsing="false" onAction="#clicEProveedor" text="Correo Proveedor" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Reportes">
             <items>
-              <MenuItem fx:id="btnCompraVenta" mnemonicParsing="false" onAction="#clicCompraVenta" text="Compra y Venta de productor" />
-                  <MenuItem fx:id="btnCargo" mnemonicParsing="false" onAction="#clicCargo" text="Cargo" />
+                  <Menu mnemonicParsing="false" text="Datos Facturas">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Facturas" />
+                        <MenuItem mnemonicParsing="false" text="Detalles Facturas" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Datos Compras">
+                    <items>
+                    <MenuItem fx:id="btnCompraVenta" mnemonicParsing="false" onAction="#clicCompraVenta" text="Compra y Venta de productor" />
+                      <MenuItem fx:id="btnDetalleCompra" mnemonicParsing="false" onAction="#clicDCompra" text="Datalles Compras" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Datos Empleados">
+                    <items>
+                      <MenuItem fx:id="btnMenuEmpleado" mnemonicParsing="false" onAction="#clicEmplado" text="Empleados" />
+                        <MenuItem fx:id="btnCargo" mnemonicParsing="false" onAction="#clicCargo" text="Cargo Empleados" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Acerca de:">
