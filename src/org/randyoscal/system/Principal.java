@@ -18,6 +18,7 @@ import org.randyoscal.Controller.CargoEmpleadoController;
 import org.randyoscal.Controller.DetalleCompraController;
 import org.randyoscal.Controller.EmailProveedorController;
 import org.randyoscal.Controller.EmpleadoController;
+import org.randyoscal.Controller.LoginController;
 import org.randyoscal.Controller.ProductoController;
 import org.randyoscal.Controller.TelefonoProveedorController;
 
@@ -37,6 +38,7 @@ public class Principal extends Application {
     public void start(Stage escenarioPrincipal) throws Exception {
         this.escenarioPrincipal = escenarioPrincipal;
         this.escenarioPrincipal.setTitle("Kinal Express");
+        //LoginSceneBuilder();
         menuPrincipalView();
 
         /*Parent root = FXMLLoader.load(getClass().getResource("/org/randyoscal/View/MenuPrincipalView.fxml"));
@@ -63,6 +65,16 @@ public class Principal extends Application {
         return resultado;
     }
 
+    
+    public void LoginSceneBuilder() {
+        try {
+            LoginController LoginSceneBuilder = (LoginController) cambiarEscena("LoginSceneBuilder.fxml", 628, 475);
+            LoginSceneBuilder.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void menuPrincipalView() {
         try {
             MenuPrincipalController menuPrincipalView = (MenuPrincipalController) cambiarEscena("MenuPrincipalView.fxml", 628, 475);

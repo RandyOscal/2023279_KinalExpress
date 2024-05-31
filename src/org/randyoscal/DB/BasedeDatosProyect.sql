@@ -1134,6 +1134,7 @@ CALL sp_EliminarDetalleFacturaPorCodigo(2);
 CALL sp_EditarDetalleFactura(3, 8.25, 3, 2, 'PROD002');
 
 
+
 -- Función para calcular precios y total de compra
 DELIMITER $$
 
