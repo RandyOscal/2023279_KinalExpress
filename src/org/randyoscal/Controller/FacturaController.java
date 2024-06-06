@@ -27,6 +27,7 @@ public class FacturaController implements Initializable {
     private enum operaciones {AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO}
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
     private ObservableList<Factura> listaFacturas;
+    
     @FXML private Button btnRegresar;
     
 
@@ -294,8 +295,8 @@ public class FacturaController implements Initializable {
     }
 
     @FXML 
-    public void regresar (ActionEvent event) {
-        if (event.getSource() == btnRegresar) {
+    public void regresar (ActionEvent event){
+        if (event.getSource() == btnRegresar){
             escenarioPrincipal.menuPrincipalView();
         }
     }

@@ -24,6 +24,8 @@ public class MenuPrincipalController implements Initializable {
     @FXML MenuItem btnMenuTelefonoClientes;
     @FXML MenuItem btnCompraVenta;
     @FXML MenuItem btnCargo;
+    @FXML MenuItem btnDetalleFactura;
+    @FXML MenuItem btnFactura;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -118,5 +120,18 @@ public class MenuPrincipalController implements Initializable {
         }
     }
     
+    @FXML
+    public void clicDFactura (ActionEvent event){
+        if (event.getSource() == btnDetalleFactura){
+            escenarioPrincipal.DetalleFactura();
+        }
+    }
+    
+    @FXML
+    public void clicFactura (ActionEvent event){
+        if (event.getSource() == btnFactura){
+            escenarioPrincipal.Facturas();
+        }
+    }
+    
 }
-

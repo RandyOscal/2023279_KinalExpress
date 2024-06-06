@@ -18,6 +18,7 @@ import org.randyoscal.Controller.CargoEmpleadoController;
 import org.randyoscal.Controller.DetalleCompraController;
 import org.randyoscal.Controller.EmailProveedorController;
 import org.randyoscal.Controller.EmpleadoController;
+import org.randyoscal.Controller.FacturaController;
 import org.randyoscal.Controller.LoginController;
 import org.randyoscal.Controller.ProductoController;
 import org.randyoscal.Controller.TelefonoProveedorController;
@@ -138,23 +139,13 @@ public class Principal extends Application {
     
     public void CargoView(){
         try{
-            CargoEmpleadoController SalarioView = (CargoEmpleadoController)cambiarEscena("MenuCargoEmpeadosView.fxml", 749,422);
-            SalarioView.setEscenarioPrincipal(this);
+            CargoEmpleadoController CargoView = (CargoEmpleadoController)cambiarEscena("MenuCargoEmpeadosView.fxml", 749,422);
+            CargoView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }
     
     }
-    
-    public void TipoProductoView(){
-        try{
-            TipoProductosController ProductosView = (TipoProductosController)cambiarEscena("MenuTipoProductos.fxml", 749,422);
-            ProductosView.setEscenarioPrincipal(this);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-    
     
     public void ProductoView(){
         try{
@@ -168,8 +159,8 @@ public class Principal extends Application {
     
     public void EmpleadoView(){
         try{
-            EmpleadoController ProductosView = (EmpleadoController)cambiarEscena("MenuEmpleadoView.fxml", 749,422);
-            ProductosView.setEscenarioPrincipal(this);
+            EmpleadoController EmpleadosView = (EmpleadoController)cambiarEscena("MenuEmpleadoView.fxml", 749,422);
+            EmpleadosView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -177,8 +168,8 @@ public class Principal extends Application {
     
     public void TelefonoProveedor(){
         try{
-            TelefonoProveedorController ProductosView = (TelefonoProveedorController)cambiarEscena("MenuTelefonoProveedor.fxml", 749,422);
-            ProductosView.setEscenarioPrincipal(this);
+            TelefonoProveedorController TelProveedorView = (TelefonoProveedorController)cambiarEscena("MenuTelefonoProveedor.fxml", 749,422);
+            TelProveedorView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -187,8 +178,8 @@ public class Principal extends Application {
     
     public void EmailProveedor(){
         try{
-            EmailProveedorController ProductosView = (EmailProveedorController)cambiarEscena("MenuEmailProveedor.fxml", 749,422);
-            ProductosView.setEscenarioPrincipal(this);
+            EmailProveedorController EmailPView = (EmailProveedorController)cambiarEscena("MenuEmailProveedor.fxml", 749,422);
+            EmailPView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -196,8 +187,26 @@ public class Principal extends Application {
     
     public void DetalleCompra(){
         try{
-            DetalleCompraController ProductosView = (DetalleCompraController)cambiarEscena("MenuDetalleCompra.fxml", 749,422);
-            ProductosView.setEscenarioPrincipal(this);
+            DetalleCompraController DComprasView = (DetalleCompraController)cambiarEscena("MenuDetalleCompra.fxml", 749,422);
+            DComprasView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void DetalleFactura(){
+        try{
+            DetalleCompraController DFacturasView = (DetalleCompraController)cambiarEscena("DetalleFacturasView.fxml", 749,422);
+            DFacturasView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void Facturas(){
+        try{
+            FacturaController FacturasView = (FacturaController)cambiarEscena("FacturaView.fxml", 749,422);
+            FacturasView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();
         }

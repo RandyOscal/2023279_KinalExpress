@@ -1,7 +1,7 @@
- drop database DBKinalExpress;
-create database DBKinalExpress;
+ drop database DBKinalExpres;
+create database DBKinalExpres;
 
-use DBKinalExpress;
+use DBKinalExpres;
 
 create table Clientes(
 	codigoCliente int not null,

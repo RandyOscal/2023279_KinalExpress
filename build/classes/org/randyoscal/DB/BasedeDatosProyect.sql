@@ -1,7 +1,7 @@
- drop database DBKinalExpress;
-create database DBKinalExpress;
+ drop database DBKinalExpres;
+create database DBKinalExpres;
 
-use DBKinalExpress;
+use DBKinalExpres;
 
 create table Clientes(
 	codigoCliente int not null,
@@ -1132,6 +1132,7 @@ CALL sp_EliminarDetalleFacturaPorCodigo(2);
 
 -- Editar la información de un detalle de factura (por ejemplo, cambiar la cantidad del detalle de factura con código 3)
 CALL sp_EditarDetalleFactura(3, 8.25, 3, 2, 'PROD002');
+
 
 
 -- Función para calcular precios y total de compra

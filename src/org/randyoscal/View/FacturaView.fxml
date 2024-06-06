@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.randyoscal.Controller.FacturaController">
    <children>
       <ImageView fitHeight="422.0" fitWidth="749.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -87,41 +86,41 @@
             </Button>
          </children>
       </GridPane>
-      <GridPane layoutX="266.0" layoutY="74.0" prefHeight="161.0" prefWidth="417.0">
+      <GridPane layoutX="250.0" layoutY="93.0" prefHeight="115.0" prefWidth="417.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="68.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="129.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="81.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="162.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="97.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="149.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Estado" GridPane.rowIndex="1" />
-            <TextField fx:id="txtPrecioDocena" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Precio M" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="txtPrecioMayor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtEstado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Codigo Cliente" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCodCliente" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Label text="Total" GridPane.rowIndex="2" />
-            <TextField fx:id="txtExistencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtIdTipoProducto" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label text="ID TIPO" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTotFactura" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="No. Factura" />
-            <TextField fx:id="txtCodigoProducto" GridPane.columnIndex="1" />
-            <TextField fx:id="txtDescripcionProducto" GridPane.columnIndex="3" />
-            <Label text="Descripcion" GridPane.columnIndex="2" />
+            <TextField fx:id="txtnumFactura" GridPane.columnIndex="1" />
+            <TextField fx:id="txtFeFactura" GridPane.columnIndex="3" />
+            <Label text="Fecha emisión" GridPane.columnIndex="2" />
+            <Label text="Codigo Empleado" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCodEmpleados" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <TableView fx:id="tblProductos" layoutX="207.0" layoutY="223.0" onMouseClicked="#seleccionarDatos" prefHeight="169.0" prefWidth="440.0">
+      <TableView fx:id="tblFactura" layoutX="244.0" layoutY="223.0" onMouseClicked="#seleccionarDatos" prefHeight="169.0" prefWidth="392.0">
          <columns>
-            <TableColumn fx:id="colCodigoProducto" prefWidth="41.0" text="Id" />
-            <TableColumn fx:id="colDescripcionProducto" prefWidth="139.0" text="colDescripcionProducto" />
-            <TableColumn fx:id="colPrecioUnitario" prefWidth="112.0" text="colPrecioUnitario" />
-            <TableColumn fx:id="colPrecioDocena" minWidth="3.0" prefWidth="109.0" text="colPrecioDocena" />
-            <TableColumn fx:id="colPrecioMayor" prefWidth="179.0" text="colPrecioMayor" />
-            <TableColumn fx:id="colCodigoProveedor" prefWidth="141.0" text="colCodigoProveedor" />
+            <TableColumn fx:id="colnumFactura" prefWidth="40.0" text="No." />
+            <TableColumn fx:id="colEstado" prefWidth="72.0" text="Estado" />
+            <TableColumn fx:id="colTotFactura" prefWidth="83.0" text="Total" />
+            <TableColumn fx:id="colFeFactura" minWidth="3.0" prefWidth="109.0" text="Fecha emisión" />
+            <TableColumn fx:id="colCodCliente" prefWidth="83.0" text="Cod. Cliente" />
+            <TableColumn fx:id="colCodEmpleados" prefWidth="89.0" text="Cod. Empleado" />
          </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="655.0" layoutY="349.0" mnemonicParsing="false" onAction="#regresar" prefHeight="51.0" prefWidth="94.0" styleClass="buttonR" stylesheets="@../Resource/KinalExpresCSS.css" text="Regresar">
