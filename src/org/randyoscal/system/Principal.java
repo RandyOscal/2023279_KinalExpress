@@ -16,6 +16,7 @@ import org.randyoscal.Controller.ProgramadorController;
 import org.randyoscal.Controller.ProveedoresController;
 import org.randyoscal.Controller.CargoEmpleadoController;
 import org.randyoscal.Controller.DetalleCompraController;
+import org.randyoscal.Controller.DetalleFacturaController;
 import org.randyoscal.Controller.EmailProveedorController;
 import org.randyoscal.Controller.EmpleadoController;
 import org.randyoscal.Controller.FacturaController;
@@ -196,7 +197,7 @@ public class Principal extends Application {
     
     public void DetalleFactura(){
         try{
-            DetalleCompraController DFacturasView = (DetalleCompraController)cambiarEscena("DetalleFacturasView.fxml", 749,422);
+            DetalleFacturaController DFacturasView = (DetalleFacturaController)cambiarEscena("DetallesFacturasView.fxml", 749,422);
             DFacturasView.setEscenarioPrincipal(this);
         }catch(Exception e){
             e.printStackTrace();

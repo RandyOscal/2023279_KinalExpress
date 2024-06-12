@@ -99,16 +99,16 @@
             <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label text="Estado" GridPane.rowIndex="1" />
-            <TextField fx:id="txtEstado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Codigo Cliente" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="txtCodCliente" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label text="Total" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTotFactura" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="No. Factura" />
             <TextField fx:id="txtnumFactura" GridPane.columnIndex="1" />
-            <TextField fx:id="txtFeFactura" GridPane.columnIndex="3" />
+            <Label text="Estado" GridPane.rowIndex="1" />
+            <TextField fx:id="txtEstado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Total" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTotFactura" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Fecha emisión" GridPane.columnIndex="2" />
+            <TextField fx:id="txtFeFactura" GridPane.columnIndex="3" />
+            <Label text="Codigo Cliente" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCodCliente" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Label text="Codigo Empleado" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField fx:id="txtCodEmpleados" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>

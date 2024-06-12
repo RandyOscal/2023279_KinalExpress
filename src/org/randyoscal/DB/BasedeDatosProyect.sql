@@ -1,4 +1,4 @@
- drop database DBKinalExpres;
+drop database DBKinalExpres;
 create database DBKinalExpres;
 
 use DBKinalExpres;
@@ -1038,19 +1038,19 @@ CALL sp_EditarTipoProducto(3, 'Hogar');
 
 
 -- Agregar un producto
-CALL sp_AgregarProducto('PROD001', 'Producto 1', 10.00, 100.00, 500.00, 'imagen1.jpg', 50, 1, 1);
+CALL sp_AgregarProducto('01', 'Producto 1', 10.00, 100.00, 500.00, 'imagen1.jpg', 50, 1, 1);
 
 -- Listar todos los productos
 CALL sp_ListarProductos();
 
 -- Buscar un producto por su código (por ejemplo, código 'PROD001')
-CALL sp_BuscarProductoPorCodigo('PROD001');
+CALL sp_BuscarProductoPorCodigo('01');
 
 -- Eliminar un producto por su código (por ejemplo, código 'PROD002')
-CALL sp_EliminarProductoPorCodigo('PROD002');
+CALL sp_EliminarProductoPorCodigo('02');
 
 -- Editar la información de un producto (por ejemplo, cambiar la descripción del producto con código 'PROD003')
-CALL sp_EditarProducto('PROD003', 'Nuevo Producto', 15.00, 150.00, 700.00, 'imagen2.jpg', 30, 2, 2);
+CALL sp_EditarProducto('03', 'Nuevo Producto', 15.00, 150.00, 700.00, 'imagen2.jpg', 30, 2, 2);
 
 
 
@@ -1103,7 +1103,7 @@ CALL sp_EditarTelefonoProveedor(3, '87654321', '12345678', 'Nuevas observaciones
 
 
 -- Agregar un detalle de compra
-CALL sp_AgregarDetalleCompra(1, 10.50, 5, 'PROD001', 1);
+CALL sp_AgregarDetalleCompra(1, 10.50, 5, '01', 1);
 
 -- Listar todos los detalles de compra
 CALL sp_ListarDetallesCompra();
@@ -1115,11 +1115,11 @@ CALL sp_BuscarDetalleCompraPorCodigo(1);
 CALL sp_EliminarDetalleCompraPorCodigo(2);
 
 -- Editar la información de un detalle de compra (por ejemplo, cambiar la cantidad del detalle de compra con código 3)
-CALL sp_EditarDetalleCompra(3, 8.25, 3, 'PROD002', 2);
+CALL sp_EditarDetalleCompra(3, 8.25, 3, '02', 2);
 
 
 -- Agregar un detalle de factura
-CALL sp_AgregarDetalleFactura(1, 10.50, 5, 1, 'PROD001');
+CALL sp_AgregarDetalleFactura(1, 10.50, 5, 1, '01');
 
 -- Listar todos los detalles de factura
 CALL sp_ListarDetallesFactura();
@@ -1131,7 +1131,7 @@ CALL sp_BuscarDetalleFacturaPorCodigo(1);
 CALL sp_EliminarDetalleFacturaPorCodigo(2);
 
 -- Editar la información de un detalle de factura (por ejemplo, cambiar la cantidad del detalle de factura con código 3)
-CALL sp_EditarDetalleFactura(3, 8.25, 3, 2, 'PROD002');
+CALL sp_EditarDetalleFactura(3, 8.25, 3, 2, '02');
 
 
 
@@ -1233,7 +1233,7 @@ END$$
 DELIMITER ;
 
 
-
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admi';
 
 
 set global time_zone = '-6:00';

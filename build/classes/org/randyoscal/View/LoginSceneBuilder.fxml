@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.randyoscal.Controller.LoginController">
    <children>
       <ImageView fitHeight="443.0" fitWidth="591.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
          <image>
@@ -33,7 +33,7 @@
          </image>
       </ImageView>
       <PasswordField layoutX="388.0" layoutY="231.0" prefHeight="25.0" prefWidth="171.0" />
-      <Button layoutX="500.0" layoutY="280.0" mnemonicParsing="false" text="Ingresar" />
+      <Button fx:id="btnIngresar" layoutX="500.0" layoutY="280.0" mnemonicParsing="false" onAction="#clicIngresar" text="Ingresar" />
       <Text layoutX="80.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Bienvenido!" wrappingWidth="230.13671875">
          <font>
             <Font name="Eras Bold ITC" size="35.0" />

@@ -5,6 +5,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.randyoscal.DB.Conexion;
 import org.randyoscal.bean.CompraVentas;
+import org.randyoscal.reportes.GenerarReportes;
 import org.randyoscal.system.Principal;
 
 public class CompraVentaController implements Initializable{
@@ -229,6 +232,9 @@ public class CompraVentaController implements Initializable{
     
     public void reporte(){
         switch(tipoDeOperaciones){
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -240,9 +246,16 @@ public class CompraVentaController implements Initializable{
                 imgEditar.setImage(new Image("/org/randyoscal/Image/Editar.png"));
                 imgReporte.setImage(new Image("/org/randyoscal/Image/Reportes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
+                cargarDatos();
         }
     }
     
+    public void imprimirReporte(){
+        
+        Map parametros = new HashMap();
+        parametros.put("numeroDocumento", null);
+        GenerarReportes.mostrarRepsorters("ReporteCompras.jasper", "Reporte de las compras.", parametros);
+    }
     
     public void actualizar(){
         try{

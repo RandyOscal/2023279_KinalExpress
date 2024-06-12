@@ -37,11 +37,11 @@ public class DetalleFacturaController implements Initializable {
 
     @FXML private TableView tblDetallesFactura;
 
-    @FXML private TableColumn colCodigoDetalleCompra;
-    @FXML private TableColumn colCostoUnitario;
+    @FXML private TableColumn colCodigoDetalleFactura;
+    @FXML private TableColumn colPrecioU;
     @FXML private TableColumn colCantidad;
-    @FXML private TableColumn colCodigoProducto;
-    @FXML private TableColumn colNumeroDocumento;
+    @FXML private TableColumn colnumFactura;
+    @FXML private TableColumn colcodProducto;
 
     @FXML private Button btnAgregar;
     @FXML private Button btnEliminar;
@@ -62,20 +62,20 @@ public class DetalleFacturaController implements Initializable {
     public void cargarDatos() {
         if (tblDetallesFactura != null) {
             tblDetallesFactura.setItems(getDetallesFactura());
-            colCodigoDetalleCompra.setCellValueFactory(new PropertyValueFactory<DetalleFactura, Integer>("codigoDetalleCompra"));
-            colCostoUnitario.setCellValueFactory(new PropertyValueFactory<DetalleFactura, Double>("costoUnitario"));
+            colCodigoDetalleFactura.setCellValueFactory(new PropertyValueFactory<DetalleFactura, Integer>("codigoDetalleFactura"));
+            colPrecioU.setCellValueFactory(new PropertyValueFactory<DetalleFactura, Double>("precioUnitario"));
             colCantidad.setCellValueFactory(new PropertyValueFactory<DetalleFactura, Integer>("cantidad"));
-            colCodigoProducto.setCellValueFactory(new PropertyValueFactory<DetalleFactura, String>("codigoProducto"));
-            colNumeroDocumento.setCellValueFactory(new PropertyValueFactory<DetalleFactura, Integer>("numeroDocumento"));
+            colnumFactura.setCellValueFactory(new PropertyValueFactory<DetalleFactura, String>("numeroFactura"));
+            colcodProducto.setCellValueFactory(new PropertyValueFactory<DetalleFactura, String>("codigoProducto"));
         } else {
-            System.out.println("tblDetallesCompra es nulo");
+            System.out.println("tblDetallesFactura es nulo");
         }
     }
 
     public ObservableList<DetalleFactura> getDetallesFactura() {
         ArrayList<DetalleFactura> lista = new ArrayList<DetalleFactura>();
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarDetallesCompra()}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarDetallesFactura()}");
             ResultSet resultado = procedimiento.executeQuery();
             while(resultado.next()) {
                 lista.add(new DetalleFactura (

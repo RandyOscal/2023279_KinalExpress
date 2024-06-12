@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.randyoscal.DB.Conexion;
 import org.randyoscal.bean.Clientes;
+import org.randyoscal.reportes.GenerarReportes;
 import org.randyoscal.system.Principal;
 
 public class MenuClientesController implements Initializable{
@@ -244,6 +247,9 @@ public class MenuClientesController implements Initializable{
     
     public void reporte(){
         switch(tipoDeOperaciones){
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -255,9 +261,16 @@ public class MenuClientesController implements Initializable{
                 imgEditar.setImage(new Image("/org/randyoscal/Image/Editar.png"));
                 imgReporte.setImage(new Image("/org/randyoscal/Image/Reportes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
+                cargarDatos();
         }
     }
-    
+   
+    public void imprimirReporte(){
+        
+        Map parametros = new HashMap();
+        parametros.put("codigoCliente", null);
+        GenerarReportes.mostrarRepsorters("ReporteClientes.jasper", "Reporte de los clientes", parametros);
+    }
     
     public void actualizar(){
         try{

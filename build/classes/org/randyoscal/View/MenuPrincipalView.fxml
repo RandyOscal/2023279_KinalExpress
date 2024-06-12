@@ -38,7 +38,7 @@
                   <Menu mnemonicParsing="false" text="Datos Facturas">
                     <items>
                       <MenuItem fx:id="btnFactura" mnemonicParsing="false" onAction="#clicFactura" text="Facturas" />
-                        <MenuItem mnemonicParsing="false" text="Detalles Facturas" />
+                        <MenuItem fx:id="btnDetalleFactura" mnemonicParsing="false" onAction="#clicDFactura" text="Detalles Facturas" />
                     </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Datos Compras">
