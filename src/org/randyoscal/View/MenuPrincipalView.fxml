@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="474.0" fitWidth="646.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Image/Superm.jpg" />
+            <Image url="@../image/Superm.jpg" />
          </image></ImageView>
       <MenuBar layoutY="26.0" prefHeight="30.0" prefWidth="215.0">
         <menus>
@@ -64,7 +64,7 @@
       </MenuBar>
       <ImageView fitHeight="135.0" fitWidth="162.0" layoutX="476.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Image/Logo.png" />
+            <Image url="@../image/Logo.png" />
          </image>
       </ImageView>
    </children>

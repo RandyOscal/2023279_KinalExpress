@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCompras" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6bc270ee-a789-4c76-b5bf-c1328a37b815">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[call sp_ListarCompras]]>
+	</queryString>
+	<field name="numeroDocumento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaDocumento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalDocumento" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="802" uuid="10ebabcf-7308-4128-b5fa-426a16d2d6da"/>
+				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\image\\Membrete 2.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="109" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="54" width="100" height="20" uuid="de61e587-f7e8-40ca-9e4f-4103def2f6ea"/>
+				<text><![CDATA[numeroDocumento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="54" width="100" height="20" uuid="7a5a8586-ad77-4e11-9ac6-a7856e404728"/>
+				<text><![CDATA[fechaDocumento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="54" width="100" height="20" uuid="726e5beb-f280-4dc1-937e-9fa5b5a87ca0"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="54" width="100" height="20" uuid="ba8eaa31-de14-4518-8d50-d9677de5f151"/>
+				<text><![CDATA[totalDocumento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="18" width="100" height="20" uuid="844f722d-6127-484f-adda-6c6705cc5fd0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{numeroDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="18" width="100" height="20" uuid="00935653-4fdc-45a5-a13f-467661d7b33f"/>
+				<textFieldExpression><![CDATA[$F{fechaDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="18" width="100" height="20" uuid="7fa79eea-8244-4579-9038-b37cb6ab2ae9"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="18" width="100" height="20" uuid="18ccf3e7-f396-4efd-8f03-4b0f1d9db6a3"/>
+				<textFieldExpression><![CDATA[$F{totalDocumento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.randyoscal.Controller.ProveedoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.randyoscal.controller.ProveedoresController">
    <children>
       <ImageView fitHeight="421.0" fitWidth="749.0">
          <image>
-            <Image url="@../Image/FondoProveedores.png" />
+            <Image url="@../image/FondoProveedores.png" />
          </image>
       </ImageView>
       <GridPane layoutX="14.0" layoutY="125.0" prefHeight="251.0" prefWidth="166.0">
@@ -31,11 +31,11 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../Resource/KinalExpresCSS.css" text="Agregar">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../resource/KinalExpresCSS.css" text="Agregar">
                <graphic>
                   <ImageView fx:id="imgAgregar" fitHeight="46.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Image/Agregar.png" />
+                        <Image url="@../image/Agregar.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -43,11 +43,11 @@
                   <Font name="Eras Bold ITC" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../Resource/KinalExpresCSS.css" text="Eliminar" GridPane.rowIndex="1">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../resource/KinalExpresCSS.css" text="Eliminar" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fx:id="imgEliminar" fitHeight="46.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Image/Eliminar.png" />
+                        <Image url="@../image/Eliminar.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -55,11 +55,11 @@
                   <Font name="Eras Bold ITC" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../Resource/KinalExpresCSS.css" text="Editar" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../resource/KinalExpresCSS.css" text="Editar" GridPane.rowIndex="2">
                <graphic>
                   <ImageView fx:id="imgEditar" fitHeight="46.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Image/Editar.png" />
+                        <Image url="@../image/Editar.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -67,11 +67,11 @@
                   <Font name="Eras Bold ITC" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../Resource/KinalExpresCSS.css" text="Reportes" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="35.0" prefWidth="167.0" styleClass="button5" stylesheets="@../resource/KinalExpresCSS.css" text="Reportes" GridPane.rowIndex="3">
                <graphic>
                   <ImageView fx:id="imgReporte" fitHeight="46.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Image/Reportes.png" />
+                        <Image url="@../image/Reportes.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -138,7 +138,7 @@
             <TableColumn fx:id="colpaginaW" prefWidth="84.0" text="paginaWeb" />
         </columns>
       </TableView>
-      <Button fx:id="btnRegresar" layoutX="655.0" layoutY="368.0" mnemonicParsing="false" onAction="#regresar" prefHeight="47.0" prefWidth="90.0" styleClass="buttonR" stylesheets="@../Resource/KinalExpresCSS.css" text="Regresar">
+      <Button fx:id="btnRegresar" layoutX="655.0" layoutY="368.0" mnemonicParsing="false" onAction="#regresar" prefHeight="47.0" prefWidth="90.0" styleClass="buttonR" stylesheets="@../resource/KinalExpresCSS.css" text="Regresar">
          <font>
             <Font name="Eras Bold ITC" size="15.0" />
          </font></Button>
