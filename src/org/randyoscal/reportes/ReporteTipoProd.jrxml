@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteTipoProd" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e72fb907-ae19-45d2-b52c-f7f9a608d13f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="927"/>
+	<property name="ireport.y" value="447"/>
 	<queryString>
 		<![CDATA[call sp_ListarTiposProducto]]>
 	</queryString>
@@ -16,7 +16,7 @@
 		<band height="802" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="555" height="802" uuid="0309f65f-af4d-4857-a3bb-8b21c633994e"/>
-				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\image\\Membrete 2.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\Image\\Membrete 2.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</background>

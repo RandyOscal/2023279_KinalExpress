@@ -33,7 +33,7 @@ public class Principal extends Application {
 
     private Stage escenarioPrincipal;
     private Scene escena;
-    private final String URLVIEW = "/org/randyoscal/view/";
+    private final String URLVIEW = "/org/randyoscal/View/";
 
     /* FXML, Parent*/
     @Override

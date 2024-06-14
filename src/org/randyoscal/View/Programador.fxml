@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="8.0" layoutY="7.0" prefHeight="383.0" prefWidth="393.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="btnRegresar" layoutX="304.0" layoutY="327.0" mnemonicParsing="false" onAction="#regresar" prefHeight="42.0" prefWidth="83.0" styleClass="buttonRP" stylesheets="@../resource/KinalExpresCSS.css" text="Regresar">
+            <Button fx:id="btnRegresar" layoutX="304.0" layoutY="327.0" mnemonicParsing="false" onAction="#regresar" prefHeight="42.0" prefWidth="83.0" styleClass="buttonRP" stylesheets="@../Resource/KinalExpresCSS.css" text="Regresar">
                <font>
                   <Font name="Eras Bold ITC" size="14.0" />
                </font>
@@ -45,7 +45,7 @@
       </Text>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="285.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/FotoProgramador.jpeg" />
+            <Image url="@../Image/FotoProgramador.jpeg" />
          </image>
       </ImageView>
    </children>

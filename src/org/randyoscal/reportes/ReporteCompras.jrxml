@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCompras" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6bc270ee-a789-4c76-b5bf-c1328a37b815">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="800"/>
 	<queryString>
 		<![CDATA[call sp_ListarCompras]]>
 	</queryString>
@@ -22,7 +22,7 @@
 		<band height="802" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="555" height="802" uuid="10ebabcf-7308-4128-b5fa-426a16d2d6da"/>
-				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\image\\Membrete 2.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\Image\\Membrete 2.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</background>

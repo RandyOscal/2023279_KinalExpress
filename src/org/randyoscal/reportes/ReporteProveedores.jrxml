@@ -34,7 +34,7 @@
 		<band height="802" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="555" height="802" uuid="9c3a8512-b3ba-4de5-aa63-8905d7e02975"/>
-				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\image\\Membrete 2.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Fam. Oscal Cabrera\\Desktop\\repositorio P\\2023279_KinalExpress\\src\\org\\randyoscal\\Image\\Membrete 2.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</background>

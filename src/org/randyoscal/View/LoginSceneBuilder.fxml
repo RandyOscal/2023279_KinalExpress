@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="443.0" fitWidth="591.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../image/Superm.jpg" />
+            <Image url="@../Image/Superm.jpg" />
          </image>
          <viewport>
             <Rectangle2D minX="10.0" minY="10.0" width="10.0" />
@@ -21,7 +21,7 @@
       </ImageView>
       <ImageView fitHeight="290.0" fitWidth="199.0" layoutX="373.0" layoutY="91.0" opacity="0.79" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/LoginFondo.png" />
+            <Image url="@../Image/LoginFondo.png" />
          </image>
       </ImageView>
       <PasswordField layoutX="388.0" layoutY="145.0" prefHeight="25.0" prefWidth="171.0" />
@@ -29,7 +29,7 @@
       <Text layoutX="388.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese su Contraseña:" wrappingWidth="149.0" />
       <ImageView fitHeight="165.0" fitWidth="177.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/Logo.png" />
+            <Image url="@../Image/Logo.png" />
          </image>
       </ImageView>
       <PasswordField layoutX="388.0" layoutY="231.0" prefHeight="25.0" prefWidth="171.0" />
